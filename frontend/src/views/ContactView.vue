@@ -1,12 +1,6 @@
 <template>
     <div>
-      <nav class="navbar fixed-top">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">About</router-link> |
-        <router-link to="/products">Products</router-link> |
-        <router-link to="/admin">Admin</router-link> |
-        <router-link to="/contact">Contacts</router-link>
-      </nav>
+      
       <main id="oi">
         <section class="mb-1">
           <h2 class="h1-responsive font-weight-bold text-center my-4"></h2>

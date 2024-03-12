@@ -1,21 +1,20 @@
-<template class="container">
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> |
-    <router-link to="/products">Products</router-link> |
-    <router-link to="/admin">Admin</router-link> |
-    <router-link to="/contact">Contacts</router-link>
-    
-  </nav>
-
+<template>
+  <NavBar/>
+  <main class="container-fluid">
+    <router-view/>
+  </main>
 </template>
+
 <script>
+import NavBar from './components/NavBar.vue';
+
 export default {
-  setup() {
-    
-  },
-}
+  components: {
+    NavBar
+  }
+};
 </script>
+
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
