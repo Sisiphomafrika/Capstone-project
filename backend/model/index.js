@@ -1,8 +1,8 @@
-import { Users } from './users.js';
+import { users } from './users.js';
 import { Products } from './Products.js';
 import { Orders } from './Orders.js';
 
-let users = new Users();
+let users = new users();
 let products = new Products();
 let orders = new Orders();
 
