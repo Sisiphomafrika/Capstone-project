@@ -17,13 +17,13 @@
                         <router-link to="/products">Products</router-link>
                     </li>
                     <li class="nav-item">
-                        <router-link to="/product">Product</router-link>
-                    </li>
-                    <li class="nav-item">
                         <router-link to="/admin">Admin</router-link>
                     </li>
                     <li class="nav-item">
                         <router-link to="/contact">Contact us</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link to="/login">Login</router-link>
                     </li>
                 </ul>
             </div>

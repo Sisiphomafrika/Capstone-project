@@ -40,3 +40,4 @@ import Card from '@/components/Card.vue';
 <style scoped>
 
 </style>
+

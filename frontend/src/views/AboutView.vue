@@ -1,18 +1,37 @@
 <template>
-  <div class="Container-fluid">
-    <div class="row justify-content-center m-5">
-      <div class="col-7">
-        <h1>ABOUT US!</h1>
-          <p class="lead">"At SunPower Innovations, we are dedicated to transforming the future of energy through sustainable solar solutions. With a relentless focus on innovation and efficiency, we strive to harness the power of the sun to create a greener, more sustainable world. Our comprehensive range of services includes everything from residential solar panel installations to large-scale commercial projects. We pride ourselves on delivering top-notch craftsmanship and personalized service to every client, ensuring that their transition to solar energy is seamless and hassle-free. At SunPower Innovations, we believe that by working together, we can build a brighter, cleaner future for generations to come.".</p>
+  <div class="row">
+<div class="containers col-lg-6 col-md-6">
   
-          <h2>OUR MISSION</h2>
-          <p class="lead">Our mission at SunPower Innovations is to revolutionize the way the world uses energy by providing reliable, affordable, and sustainable solar solutions. We believe that by harnessing the power of the sun, we can create a cleaner, greener planet for future generations.</p>
-
-          <h3>WHY CHOOSE US?</h3>
-          <p class="lead">At SunPower Innovations, we are committed to excellence in everything we do. Here are a few reasons to choose us for your solar energy needs.</p>
-      </div>
-    </div>
+  <div class="pic"></div>
+  
+  <div class="box1"></div>
+  <div class="box2"></div>
+  
+  <div class="social1">
+    <i class="fa fa-facebook" aria-hidden="true"></i> 
   </div>
+  <div class="social2">
+  <i class="fa fa-dribbble" aria-hidden="true"></i>
+  </div>
+  <div class="social3">
+    <i class="fa fa-codepen" aria-hidden="true"></i>
+  </div>
+</div>
+
+<div class="content col-md-offset-6 col-lg-offset-6">
+  <center><h1 class="contentHead">ABOUT ME</h1></center>
+  
+  <h2>Hi Folks, <br/><br/>
+    This is Shaik Maqsood. I'm a Freakin frontend developer, jus came up with this concept of having a 45<sup>o</sup> trasformed DIV with a -45<sup>o</sup> background.<br/><br/>
+    Can't belive that it worked.
+    <br/><br/>
+    Show your L<span>&hearts;</span>VE if you like my pen.
+    <br/><br/>
+    <p>(NOTICE: The lady in the PIC is not me, I'm a guy :P)</p>
+    <p><span style="text-align:right; color:#000000; font-size:18px;">* No matter what u say, that gal is sorta cute.</span></p>
+  </h2>
+</div>
+</div>   
 </template>
 
 <style scoped>
