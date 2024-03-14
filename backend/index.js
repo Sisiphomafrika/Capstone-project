@@ -8,6 +8,15 @@ import {config} from "dotenv"
 import { orderRouter } from "./controllers/OrdersControllers.js";
 config()
 const app = express()
+app.use(
+    express.static('./static'),
+    express.json(),
+    express.urlencoded({
+        extended: true,
+    }),
+    cookieParser(),
+    cors()
+)
 const port = +process.env.PORT ||4000
 app.use((req, res, next) =>{
   res.header("Access-control-Allow-Origin", "*");
@@ -18,15 +27,7 @@ app.use((req, res, next) =>{
   res.header("Access-control-Expose-Headers", "Authorization");
   next()
 })
-app.use(
-    express.static('./static'),
-    express.json(),
-    express.urlencoded({
-        extended: true,
-    }),
-    cookieParser(),
-    cors()
-)
+
 app.get('^/$|/reservation-system', (req, res) => {
     res.status(200).sendFile(path.join(__dirname, './static/index.html'))
 })
