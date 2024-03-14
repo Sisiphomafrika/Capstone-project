@@ -1,8 +1,7 @@
 import express from 'express'
 import bodyParser from 'body-parser'
-import {Users} from '../model/users.js'
+import {users} from '../model/index.js'
 import { verifyAToken } from '../middleware/Authenticate.js'
-  
 const userRouter = express.Router()
 // fetch users
 userRouter.get('/',(req, res)=>{
@@ -18,7 +17,7 @@ userRouter.get('/',(req, res)=>{
 //fetch user
 userRouter.get('/:id',(req, res)=>{
     try{
-        users.fetchUser(req,res)
+        users.fethUser(req,res)
     }catch(e) {
         res.json({
             status: res.statusCode,
