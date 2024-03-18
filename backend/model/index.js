@@ -7,7 +7,7 @@ let products = new Products();
 let orders = new Orders();
 
 export {
-    Users,
+    users,
     products,
     orders
 };

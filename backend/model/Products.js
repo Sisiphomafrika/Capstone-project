@@ -20,7 +20,7 @@ class Products {
         });
     }
 
-    fetchProduct(req, res) {
+    fetchProducts(req, res) {
         const qry = `
         SELECT prodID,
         prodName,
