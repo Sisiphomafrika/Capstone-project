@@ -27,7 +27,7 @@
 
 <p>Thank you for considering Hop Haven Brews.</p>
 
-<
+
   </div>
 
 
