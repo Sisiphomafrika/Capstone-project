@@ -1,16 +1,10 @@
 import {connection as db} from "../config/index.js"
 import {hash, compare} from 'bcrypt'
-import { createToken } from  "../middleware/Authenticate.js"
 class Users{
-    fetchusers(req, res) {
+    fetchUsers(req, res) {
         const qry = `
-        SELECT userID,
-        ContactNumber,
-        firstName,
-        lastName,
-        emailAdd,
-        userPwd,
-        userRole
+        SELECT userID, firstName, lastName,
+        userAge, gender, emailAdd, userPwd, userRole
         FROM Users;
         `
         db.query(qry, (err, results)=>{
@@ -19,30 +13,25 @@ class Users{
                 status: res.statusCode,
                 results
             })
-            
         })
     }
-    fetchuser(req, res) {
+    fetchUser(req, res) {
         const qry = `
-        SELECT userID,
-        ContactNumber,
-        firstName,
-        lastName,
-        emailAdd,
-        userPwd,
-        userRole
+        SELECT userID, firstName, lastName,
+        userAge, gender, emailAdd, userPwd, userRole
         FROM Users
         WHERE userID = ${req.params.id};
         `
         db.query(qry, (err, result)=>{
-            if(err) throw err
+            if(err) throw err 
             res.json({
                 status: res.statusCode,
                 result
             })
         })
     }
-    async createuser(req, res) {
+    async createUser(req, res) {
+        // Payload
         let data = req.body
         data.userPwd = await hash(data?.userPwd, 8)
         let user = {
@@ -52,7 +41,7 @@ class Users{
         const qry = `
         INSERT INTO Users
         SET ?;
-        `
+        `     
         db.query(qry, [data], (err)=>{
             if(err) {
                 res.json({
@@ -60,40 +49,43 @@ class Users{
                     msg: 'This email address already exist'
                 })
             }else {
+                // Create a token
                 let token = createToken(user)
                 res.json({
                     status: res.statusCode,
                     token,
-                    msg: "You\'re registered"
+                    msg: 'You\'re registered'
                 })
             }
-        })
+        })   
     }
-    async updateuser(req, res) {
-        const data = req.body
+    async updateUser(req, res) {
+        const data = req.body 
         if(data?.userPwd){
             data.userPwd = await hash(data?.userPwd, 8)
         }
+            
         const qry = `
         UPDATE Users
         SET ?
         WHERE userID = ${req.params.id};
         `
         db.query(qry, [data], (err)=>{
-            if(err) throw err
+            if(err) throw err 
             res.json({
                 status: res.statusCode,
                 msg: "The user information is updated."
             })
         })
+
     }
-    deleteuser(req, res) {
+    deleteUser(req, res) {
         const qry = `
         DELETE FROM Users
         WHERE userID = ${req.params.id};
         `
         db.query(qry, (err)=>{
-            if(err) throw err
+            if(err) throw err 
             res.json({
                 status: res.statusCode,
                 msg: "The user information has been removed."
@@ -101,36 +93,32 @@ class Users{
         })
     }
     login(req, res) {
-        const {emailAdd, userPwd} = req.body
+        const {emailAdd, userPwd} = req.body 
         const qry = `
-        SELECT userID,
-        ContactNumber,
-        firstName,
-        lastName,
-        emailAdd,
-        userPwd,
-        userRole
+        SELECT userID, firstName, lastName, 
+        userAge, gender, emailAdd, userPwd, userRole
         FROM Users
         WHERE emailAdd = '${emailAdd}';
         `
         db.query(qry, async(err, result)=>{
-            if(err) throw err
+            if(err) throw err 
             if(!result?.length){
                 res.json({
-                    status: res.statusCode,
+                    status: res.statusCode, 
                     msg: "You provided a wrong email address."
                 })
             }else {
+                // Validate password
                 const validPass = await compare(userPwd, result[0].userPwd)
                 if(validPass) {
                     const token = createToken({
-                        emailAdd,
+                        emailAdd, 
                         userPwd
                     })
                     res.json({
                         status: res.statusCode,
                         msg: "You're logged in",
-                        token,
+                        token, 
                         result: result[0]
                     })
                 }else {
