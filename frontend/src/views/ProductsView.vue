@@ -48,7 +48,7 @@
   }
   
   .card:hover {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgba(181, 173, 173, 0.2);
   }
   
   .card-body {
@@ -61,7 +61,7 @@
   }
   
   .card-text {
-    color: #6c757d;
+    color: hsl(0, 0%, 100%);
     margin-bottom: 15px;
   }
   

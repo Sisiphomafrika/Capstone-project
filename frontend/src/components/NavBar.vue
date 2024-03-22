@@ -69,6 +69,6 @@ export default {
     }
 
     .nav-link:hover {
-        color: #555555; 
+        color: #24f10d; 
     }
 </style>
