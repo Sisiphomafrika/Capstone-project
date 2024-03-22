@@ -1,43 +1,78 @@
 <template>
     <div class="container">
-        <div class="row">
-            <h2 class="display-2">Product Details</h2>
+      <div class="row">
+        <h2 class="display-2">Products</h2>
+      </div>
+      <div class="row">
+        <div v-for="product in products" :key="product.id" class="col-md-4 mb-3">
+          <div class="card">
+            <img :src="product.image" class="card-img-top" alt="Product Image">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">Price: ${{ product.price }}</p>
+              <router-link
+                :to="{ name: 'product-details', params: { id: product.id }}"
+                class="btn btn-primary"
+              >View More</router-link>
+            </div>
+          </div>
         </div>
-        <div class="row">
-            <Card v-if="product">
-                <template #cardHeader>
-                    <h4 class="card-title">{{ product.prodName }}</h4>
-                </template>
-                <template #cardBody>
-                    <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
-                        Quantity: {{ product.prodQuantity }}
-                    </p>
-                    <p class="card-text text-dark bg-gradient bg-dark-subtle p-2">
-                        Amount: R{{ product.prodAmount }}
-                    </p>
-                </template>
-            </Card>
-        </div>
+      </div>
     </div>
-</template>
-<script>
-import Card from '@/components/Card.vue';
-    export default {
-        components:{
-            Card,
-        },
-        computed: {
-            product() {
-                return this.$store.state.product
-            }
-        },
-        mounted() {
-            this.$store.dispatch('fetchProduct', this.$route.params)
-        }
-    }
-</script>
-
-<style scoped>
-
-</style>
-
+  </template>
+  
+  <script>
+  export default {
+    computed: {
+      products() {
+        return this.$store.state.products;
+      },
+    },
+    mounted() {
+      this.$store.dispatch('fetchProducts');
+    },
+  };
+  </script>
+  
+  <style scoped>
+  .container {
+    background-color: #f8f9fa;
+    padding: 20px;
+  }
+  
+  .card {
+    background-color: #0e0e0f;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-body {
+    padding: 15px;
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    color: #6c757d;
+    margin-bottom: 15px;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  </style>
+  

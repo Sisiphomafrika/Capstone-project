@@ -30,16 +30,6 @@
 
   </div>
 
-
-  <div class="footer">
-    <span class="name">Hop Haven Brews</span>
-    <ul></ul>
-    <span class="social-media">
-      <a href="#" class="fa fa-facebook-square"></a>
-      <a href="#" class="fa fa-twitter-square"></a>
-    </span>
-    <span class="copyright">Copyright © 2024, Hop Haven Brews.</span>
-  </div>
 </template>
 <script>
 export default {

@@ -6,7 +6,11 @@
         <p>
           Welcome to our brewery, where passion meets craftsmanship to create exceptional beer. At Hop Haven Brews, we take pride in every step of the brewing process, from selecting the finest ingredients to perfecting the flavor profiles of our brews.
         </p>
-        <a href="#content" class="button explore">Explore</a>
+        <li class="nav-item">
+    <router-link to="/products" class="button explore">Products</router-link>
+    <a href="#content" class="button explore">Explore</a>
+</li>
+
       </div>
       <div class="split-beer">
         <img
@@ -59,20 +63,6 @@
         </div>
       </div>
     </section>
-
-    <footer>
-    
-
-<div class="footer">
-  <span class="name">Hop Haven Brews</span>
-  <ul></ul>
-  <span class="social-media">
-    <a href="#" class="fa fa-facebook-square"></a>
-    <a href="#" class="fa fa-twitter-square"></a>
-  </span>
-  <span class="copyright">Copyright © 2024, Hop Haven Brews.</span>
-</div>
-    </footer>
   </div>
 </template>
 

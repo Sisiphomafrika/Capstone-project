@@ -5,6 +5,8 @@ import ProductsView from '../views/ProductsView.vue';
 import ContactView from '../views/ContactView.vue';
 import AdminView from '../views/AdminView.vue';
 import LoginView from '@/views/LoginView.vue';
+import ProductDetail from '../views/ProductDetail.vue';
+import UserProfile from '../views/UserProfileView.vue';
 
 const routes = [
   {
@@ -36,7 +38,19 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import( '@/views/LoginView.vue')
-  }
+  },
+  {
+    path: '/product/:id',
+    name: 'product-details',
+    component: () => import('../views/ProductDetail.vue')
+  
+  
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: () => import('../views/UserProfileView.vue')
+  },
 ];
 
 const router = createRouter({
